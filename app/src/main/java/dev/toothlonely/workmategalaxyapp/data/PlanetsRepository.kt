@@ -10,7 +10,7 @@ import io.ktor.serialization.kotlinx.json.json
 
 class PlanetsRepository {
 
-    val client = HttpClient(OkHttp) {
+    private val client = HttpClient(OkHttp) {
         install(ContentNegotiation) {
             json()
         }
