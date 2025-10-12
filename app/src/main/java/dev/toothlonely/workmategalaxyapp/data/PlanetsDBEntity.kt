@@ -1,10 +1,12 @@
 package dev.toothlonely.workmategalaxyapp.data
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 
-@Serializable
-data class PlanetResponse(
+@Entity(tableName = "planets")
+data class PlanetsDBEntity(
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val title: String,
     @SerialName("url")
     val imageUrl: String,
