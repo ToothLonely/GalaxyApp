@@ -8,21 +8,23 @@ import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.plugins.defaultRequest
-import io.ktor.client.plugins.resources.get
+import io.ktor.client.request.get
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.json.Json
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
-class PlanetsRepository(val application: Application) {
+class PlanetsRepository(application: Application) {
 
     private val client = HttpClient(OkHttp) {
         install(ContentNegotiation) {
-            json()
-        }
-        install(io.ktor.client.plugins.resources.Resources)
-        defaultRequest {
-            url("https://api.nasa.gov")
+            json(
+                Json {
+                    ignoreUnknownKeys = true
+                }
+            )
         }
     }
 
@@ -35,9 +37,7 @@ class PlanetsRepository(val application: Application) {
     private val dao = db.getPlanetsDao()
 
     suspend fun savePlanets(planets: List<Planet>) = withContext(Dispatchers.IO) {
-
         val entityPlanets = planets.map { it.toPlanetDBEntity() }
-
         dao.addPlanets(entityPlanets)
     }
 
@@ -45,12 +45,32 @@ class PlanetsRepository(val application: Application) {
         dao.getPlanetsFromDatabase()
     }
 
-    suspend fun getPlanets(count: Int): List<Planet> {
-        return client.get(
-            resource = ApiResources(
-                count = count
-            )
-        ).body()
+    suspend fun getPlanets(page: Int): List<Planet> {
+        val range = getRangeOfDates(page)
+        val startDate = range[0]
+        val endDate = range[1]
+
+        return client.get("https://api.nasa.gov/planetary/apod") {
+            url {
+                with(parameters) {
+                    append("api_key", "VyLlVvtsB7gcrTTWfpQqLftUkE0ofUsCeH8YXqEV")
+                    append("start_date", startDate)
+                    append("end_date", endDate)
+                    append("thumbs", "true")
+                }
+            }
+        }.body()
+    }
+
+    private fun getRangeOfDates(page: Int): List<String> {
+        val dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        val yesterday = LocalDate.now().minusDays(1)
+        val pageSize = 10
+
+        val endDate = yesterday.minusDays((pageSize * (page - 1)).toLong())
+        val startDate = endDate.minusDays((pageSize - 1).toLong())
+
+        return listOf(startDate.format(dateFormatter), endDate.format(dateFormatter))
     }
 
     fun close() {
