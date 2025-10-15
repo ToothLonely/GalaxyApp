@@ -12,5 +12,5 @@ data class PlanetsDBEntity(
     val imageUrl: String,
     val explanation: String,
     @SerialName("media_type")
-    val mediaType: String,
+    val mediaType: String?,
 )

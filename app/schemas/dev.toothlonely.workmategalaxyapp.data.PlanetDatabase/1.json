@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "e3bb8dddd4ecdf9b663599a52476d196",
+    "identityHash": "45dc3e790f469f8deace3eae11547e4f",
     "entities": [
       {
         "tableName": "planets",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `imageUrl` TEXT NOT NULL, `explanation` TEXT NOT NULL, `mediaType` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `imageUrl` TEXT NOT NULL, `explanation` TEXT NOT NULL, `mediaType` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -35,8 +35,7 @@
           {
             "fieldPath": "mediaType",
             "columnName": "mediaType",
-            "affinity": "TEXT",
-            "notNull": true
+            "affinity": "TEXT"
           }
         ],
         "primaryKey": {
@@ -49,7 +48,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e3bb8dddd4ecdf9b663599a52476d196')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '45dc3e790f469f8deace3eae11547e4f')"
     ]
   }
 }

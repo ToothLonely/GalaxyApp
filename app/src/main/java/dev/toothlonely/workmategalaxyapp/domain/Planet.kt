@@ -11,7 +11,7 @@ data class Planet(
     val imageUrl: String,
     val explanation: String,
     @SerialName("media_type")
-    val mediaType: String,
+    val mediaType: String? = null,
 )
 
 fun Planet.toPlanetDBEntity() = PlanetsDBEntity(

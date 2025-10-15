@@ -12,6 +12,7 @@ import io.ktor.client.request.get
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -45,8 +46,9 @@ class PlanetsRepository(application: Application) {
         dao.getPlanetsFromDatabase()
     }
 
+    @OptIn(ExperimentalSerializationApi::class)
     suspend fun getPlanets(page: Int): List<Planet> {
-        val range = getRangeOfDates(page)
+/*        val range = getRangeOfDates(page)
         val startDate = range[0]
         val endDate = range[1]
 
@@ -59,7 +61,14 @@ class PlanetsRepository(application: Application) {
                     append("thumbs", "true")
                 }
             }
-        }.body()
+        }.body()*/
+        val json = Json {
+            ignoreUnknownKeys = true
+            allowTrailingComma = true
+        }
+        val response = STUB.response
+        val list = json.decodeFromString<List<Planet>>(response)
+        return list
     }
 
     private fun getRangeOfDates(page: Int): List<String> {

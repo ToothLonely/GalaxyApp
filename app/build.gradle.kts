@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("androidx.room")
     id("com.google.devtools.ksp")
+    kotlin("plugin.serialization") version "2.2.0"
 }
 
 android {
@@ -46,6 +47,9 @@ android {
 
 dependencies {
 
+    implementation(libs.coil.network.ktor3)
+    implementation(libs.ktor.client.android)
+    implementation(libs.kotlinx.serialization.json)
     implementation(libs.coil.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.kotlinx.coroutines.core)
@@ -54,7 +58,6 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.paging.runtime)
     implementation(libs.androidx.paging.compose)
-    implementation(libs.ktor.client.resources)
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.core)
