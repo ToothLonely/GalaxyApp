@@ -1,4 +1,4 @@
-package dev.toothlonely.workmategalaxyapp.ui.theme
+package dev.toothlonely.workmategalaxyapp.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

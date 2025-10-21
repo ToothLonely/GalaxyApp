@@ -1,4 +1,4 @@
-package dev.toothlonely.workmategalaxyapp.data
+package dev.toothlonely.workmategalaxyapp.data.database
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -14,6 +14,6 @@ interface PlanetsDao {
     )
     suspend fun getPlanetsFromDatabase(): List<PlanetsDBEntity>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
     suspend fun addPlanets(planets: List<PlanetsDBEntity>)
 }

@@ -1,4 +1,4 @@
-package dev.toothlonely.workmategalaxyapp
+package dev.toothlonely.workmategalaxyapp.presentation.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,8 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import dev.toothlonely.workmategalaxyapp.presentation.Navigation
-import dev.toothlonely.workmategalaxyapp.ui.theme.WorkmateGalaxyAppTheme
+import dev.toothlonely.workmategalaxyapp.presentation.navigation.Navigation
+import dev.toothlonely.workmategalaxyapp.presentation.ui.theme.WorkmateGalaxyAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

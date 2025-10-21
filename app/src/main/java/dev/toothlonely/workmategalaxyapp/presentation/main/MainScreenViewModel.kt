@@ -1,4 +1,4 @@
-package dev.toothlonely.workmategalaxyapp.presentation
+package dev.toothlonely.workmategalaxyapp.presentation.main
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
-import dev.toothlonely.workmategalaxyapp.data.PlanetsPagingSource
+import dev.toothlonely.workmategalaxyapp.data.paging.PlanetsPagingSource
 import dev.toothlonely.workmategalaxyapp.data.PlanetsRepository
 
 class MainScreenViewModel(

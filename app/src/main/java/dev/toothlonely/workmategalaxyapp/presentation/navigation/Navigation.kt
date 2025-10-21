@@ -1,4 +1,4 @@
-package dev.toothlonely.workmategalaxyapp.presentation
+package dev.toothlonely.workmategalaxyapp.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -7,6 +7,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import dev.toothlonely.workmategalaxyapp.domain.Planet
+import dev.toothlonely.workmategalaxyapp.presentation.info.InfoScreen
+import dev.toothlonely.workmategalaxyapp.presentation.main.MainScreen
 import kotlinx.serialization.Serializable
 
 

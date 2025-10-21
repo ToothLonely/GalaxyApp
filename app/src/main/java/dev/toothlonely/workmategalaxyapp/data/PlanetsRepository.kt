@@ -2,6 +2,7 @@ package dev.toothlonely.workmategalaxyapp.data
 
 import android.app.Application
 import androidx.room.Room
+import dev.toothlonely.workmategalaxyapp.data.database.PlanetDatabase
 import dev.toothlonely.workmategalaxyapp.domain.Planet
 import dev.toothlonely.workmategalaxyapp.domain.toPlanetDBEntity
 import io.ktor.client.HttpClient

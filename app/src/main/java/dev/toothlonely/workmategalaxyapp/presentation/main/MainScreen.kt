@@ -1,4 +1,4 @@
-package dev.toothlonely.workmategalaxyapp.presentation
+package dev.toothlonely.workmategalaxyapp.presentation.main
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
@@ -26,7 +26,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil3.compose.AsyncImage
 import dev.toothlonely.workmategalaxyapp.domain.Planet
-import dev.toothlonely.workmategalaxyapp.ui.theme.WorkmateGalaxyAppTheme
+import dev.toothlonely.workmategalaxyapp.presentation.ui.theme.WorkmateGalaxyAppTheme
 
 @Composable
 fun MainScreen(

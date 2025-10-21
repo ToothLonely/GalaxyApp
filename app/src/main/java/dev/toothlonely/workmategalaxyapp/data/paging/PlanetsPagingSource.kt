@@ -1,8 +1,9 @@
-package dev.toothlonely.workmategalaxyapp.data
+package dev.toothlonely.workmategalaxyapp.data.paging
 
 import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import dev.toothlonely.workmategalaxyapp.data.PlanetsRepository
 import dev.toothlonely.workmategalaxyapp.domain.Planet
 
 class PlanetsPagingSource(

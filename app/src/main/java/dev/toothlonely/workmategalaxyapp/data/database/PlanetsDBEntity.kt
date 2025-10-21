@@ -1,4 +1,4 @@
-package dev.toothlonely.workmategalaxyapp.data
+package dev.toothlonely.workmategalaxyapp.data.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

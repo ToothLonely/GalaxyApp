@@ -1,4 +1,4 @@
-package dev.toothlonely.workmategalaxyapp.data
+package dev.toothlonely.workmategalaxyapp.data.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

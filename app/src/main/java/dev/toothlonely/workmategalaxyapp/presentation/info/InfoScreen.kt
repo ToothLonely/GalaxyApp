@@ -1,4 +1,4 @@
-package dev.toothlonely.workmategalaxyapp.presentation
+package dev.toothlonely.workmategalaxyapp.presentation.info
 
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background

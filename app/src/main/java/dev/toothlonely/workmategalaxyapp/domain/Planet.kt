@@ -1,6 +1,6 @@
 package dev.toothlonely.workmategalaxyapp.domain
 
-import dev.toothlonely.workmategalaxyapp.data.PlanetsDBEntity
+import dev.toothlonely.workmategalaxyapp.data.database.PlanetsDBEntity
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
