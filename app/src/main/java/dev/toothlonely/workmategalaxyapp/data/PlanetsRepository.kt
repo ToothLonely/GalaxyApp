@@ -5,10 +5,8 @@ import androidx.room.Room
 import dev.toothlonely.workmategalaxyapp.domain.Planet
 import dev.toothlonely.workmategalaxyapp.domain.toPlanetDBEntity
 import io.ktor.client.HttpClient
-import io.ktor.client.call.body
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.request.get
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

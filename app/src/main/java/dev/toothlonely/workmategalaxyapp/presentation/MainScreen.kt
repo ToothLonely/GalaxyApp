@@ -25,18 +25,26 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil3.compose.AsyncImage
+import dev.toothlonely.workmategalaxyapp.domain.Planet
 import dev.toothlonely.workmategalaxyapp.ui.theme.WorkmateGalaxyAppTheme
 
 @Composable
-fun MainScreen(modifier: Modifier) {
-    ScrollingGrid(modifier)
+fun MainScreen(
+    modifier: Modifier = Modifier,
+    onNavigateToInfoScreen: (Planet) -> Unit
+) {
+    ScrollingGrid(
+        modifier,
+        onNavigateToInfoScreen = onNavigateToInfoScreen
+    )
 }
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ScrollingGrid(
     modifier: Modifier = Modifier,
-    viewModel: MainScreenViewModel = viewModel()
+    viewModel: MainScreenViewModel = viewModel(),
+    onNavigateToInfoScreen: (Planet) -> Unit
 ) {
     val planets = viewModel.planetsFLow.collectAsLazyPagingItems()
 
@@ -48,11 +56,17 @@ fun ScrollingGrid(
         columns = GridCells.Fixed(2),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp),
+        modifier = modifier
     ) {
         items(planets.itemCount) { index ->
             val planet = planets[index]
 
-            Card(modifier = itemModifier) {
+            Card(
+                modifier = itemModifier,
+                onClick = {
+                    planet?.let { onNavigateToInfoScreen(it) }
+                }
+            ) {
                 Column(modifier = Modifier.fillMaxSize()) {
                     if (planet != null) {
 
@@ -88,6 +102,6 @@ fun ScrollingGrid(
 @Composable
 fun PreviewScrollingGrid() {
     WorkmateGalaxyAppTheme {
-        ScrollingGrid()
+        ScrollingGrid {}
     }
 }
