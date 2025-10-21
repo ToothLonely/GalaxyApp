@@ -47,6 +47,7 @@ android {
 
 dependencies {
 
+    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.navigation.compose)
     implementation(libs.coil.network.ktor3)
     implementation(libs.ktor.client.android)
