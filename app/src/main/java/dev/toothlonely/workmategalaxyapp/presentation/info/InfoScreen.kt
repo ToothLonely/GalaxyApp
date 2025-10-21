@@ -17,10 +17,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.layout
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil3.ImageLoader
 import coil3.compose.AsyncImage
+import coil3.gif.AnimatedImageDecoder
+import coil3.request.ImageRequest
+import coil3.request.placeholder
+import dev.toothlonely.workmategalaxyapp.R
 
 @Composable
 fun InfoScreen(
@@ -28,6 +35,12 @@ fun InfoScreen(
     description: String,
     title: String,
 ) {
+
+    val imageLoader = ImageLoader.Builder(LocalContext.current)
+        .components {
+            add(AnimatedImageDecoder.Factory())
+        }
+        .build()
 
     fun Modifier.parallaxLayoutModifier(scrollState: ScrollState, rate: Int) =
         layout { measurable, constraints ->
@@ -46,9 +59,13 @@ fun InfoScreen(
             .background(CardDefaults.cardColors().containerColor)
     ) {
         AsyncImage(
-            model = url,
+            model = ImageRequest.Builder(LocalContext.current)
+                .data(url)
+                .placeholder(R.drawable.ic_loading_placeholder)
+                .build(),
             contentDescription = null,
             contentScale = ContentScale.Crop,
+            imageLoader = imageLoader,
             modifier = Modifier
                 .fillMaxWidth()
                 .parallaxLayoutModifier(scrollState, 3)
