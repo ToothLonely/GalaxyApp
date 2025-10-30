@@ -95,7 +95,7 @@ fun ScrollingGrid(
                             AsyncImage(
                                 model = ImageRequest.Builder(LocalContext.current)
                                     .data(planet.imageUrl)
-                                    .placeholder(R.drawable.ic_loading_placeholder)
+                                    .placeholder(R.drawable.img_placeholder)
                                     .build(),
                                 contentDescription = null,
                                 contentScale = ContentScale.Crop,
