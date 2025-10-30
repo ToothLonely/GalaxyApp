@@ -65,9 +65,14 @@ class PlanetsRepository(application: Application) {
             ignoreUnknownKeys = true
             allowTrailingComma = true
         }
+
+        val pageSize = 10
+        val start = pageSize * (page - 1)
+        val end = start + pageSize
+
         val response = STUB.response
         val list = json.decodeFromString<List<Planet>>(response)
-        return list
+        return list.subList(start, end)
     }
 
     private fun getRangeOfDates(page: Int): List<String> {
