@@ -1,7 +1,5 @@
 package dev.toothlonely.workmategalaxyapp.presentation.main
 
-import android.graphics.drawable.AnimatedImageDrawable
-import android.os.Build.VERSION.SDK_INT
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,31 +19,29 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.compose.collectAsLazyPagingItems
-import coil3.ImageLoader
 import coil3.compose.AsyncImage
-import coil3.gif.AnimatedImageDecoder
-import coil3.gif.GifDecoder
-import coil3.request.ImageRequest
-import coil3.request.placeholder
 import dev.toothlonely.workmategalaxyapp.R
 import dev.toothlonely.workmategalaxyapp.domain.Planet
 import dev.toothlonely.workmategalaxyapp.presentation.ui.theme.WorkmateGalaxyAppTheme
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
     onNavigateToInfoScreen: (Planet) -> Unit
 ) {
+
+    val viewModel: MainScreenViewModel = koinViewModel()
+
     ScrollingGrid(
         modifier,
-        onNavigateToInfoScreen = onNavigateToInfoScreen
+        viewModel,
+        onNavigateToInfoScreen
     )
 }
 
@@ -53,7 +49,7 @@ fun MainScreen(
 @Composable
 fun ScrollingGrid(
     modifier: Modifier = Modifier,
-    viewModel: MainScreenViewModel = viewModel(),
+    viewModel: MainScreenViewModel,
     onNavigateToInfoScreen: (Planet) -> Unit
 ) {
     val planets = viewModel.planetsFLow.collectAsLazyPagingItems()
@@ -61,12 +57,6 @@ fun ScrollingGrid(
     val itemModifier = Modifier
         .height(350.dp)
         .wrapContentSize()
-
-    val imageLoader = ImageLoader.Builder(LocalContext.current)
-        .components {
-            add(AnimatedImageDecoder.Factory())
-        }
-        .build()
 
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
@@ -93,13 +83,10 @@ fun ScrollingGrid(
                                 .clip(RoundedCornerShape(10.dp))
                         ) {
                             AsyncImage(
-                                model = ImageRequest.Builder(LocalContext.current)
-                                    .data(planet.imageUrl)
-                                    .placeholder(R.drawable.img_placeholder)
-                                    .build(),
+                                model = planet.imageUrl,
+                                placeholder = painterResource(R.drawable.img_placeholder),
                                 contentDescription = null,
                                 contentScale = ContentScale.Crop,
-                                imageLoader = imageLoader,
                                 modifier = Modifier.fillMaxSize()
                             )
                         }
@@ -122,6 +109,6 @@ fun ScrollingGrid(
 @Composable
 fun PreviewScrollingGrid() {
     WorkmateGalaxyAppTheme {
-        ScrollingGrid {}
+        ScrollingGrid(viewModel = koinViewModel()) {}
     }
 }

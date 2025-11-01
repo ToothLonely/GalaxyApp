@@ -47,6 +47,7 @@ android {
 
 dependencies {
 
+    implementation(libs.koin.androidx.compose)
     implementation(libs.coil.gif)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.navigation.compose)

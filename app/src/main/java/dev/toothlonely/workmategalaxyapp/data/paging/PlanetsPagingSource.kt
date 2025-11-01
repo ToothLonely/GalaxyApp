@@ -1,6 +1,5 @@
 package dev.toothlonely.workmategalaxyapp.data.paging
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import dev.toothlonely.workmategalaxyapp.data.PlanetsRepository
@@ -20,7 +19,6 @@ class PlanetsPagingSource(
         return try {
             val page = params.key ?: 1
             val planetsDataSet = repo.getPlanets(page)
-            Log.i("!!!", "planetsList: $planetsDataSet")
 
             LoadResult.Page(
                 data = planetsDataSet,
@@ -28,7 +26,6 @@ class PlanetsPagingSource(
                 nextKey = if (planetsDataSet.isEmpty()) null else page.plus(1)
             )
         } catch (e: Exception) {
-            Log.e("!!!", "Error loading page", e)
             LoadResult.Error(e)
         }
     }
