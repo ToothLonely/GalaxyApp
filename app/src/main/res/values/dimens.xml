@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="itemSize">350dp</dimen>
+    <dimen name="itemSpaceDimen">4dp</dimen>
+    <dimen name="cardImageSize">250dp</dimen>
+    <dimen name="cardSpace">10dp</dimen>
+    <dimen name="infoSpaceToTitle">25dp</dimen>
+    <dimen name="infoSpaceToText">15dp</dimen>
+    <dimen name="infoTextPadding">10dp</dimen>
+</resources>

@@ -28,6 +28,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.IntSize
@@ -106,7 +107,7 @@ fun InfoScreen(
         )
 
         Card(Modifier.fillMaxHeight()) {
-            Spacer(Modifier.height(25.dp))
+            Spacer(Modifier.height(dimensionResource(R.dimen.infoSpaceToTitle)))
 
             Text(
                 text = title,
@@ -115,12 +116,12 @@ fun InfoScreen(
                 modifier = Modifier.fillMaxWidth()
             )
 
-            Spacer(Modifier.height(15.dp))
+            Spacer(Modifier.height(dimensionResource(R.dimen.infoSpaceToText)))
 
             Text(
                 text = description,
                 fontSize = 20.sp,
-                modifier = Modifier.padding(10.dp)
+                modifier = Modifier.padding(dimensionResource(R.dimen.infoTextPadding))
             )
         }
     }

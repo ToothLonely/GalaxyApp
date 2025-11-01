@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -55,13 +56,13 @@ fun ScrollingGrid(
     val planets = viewModel.planetsFLow.collectAsLazyPagingItems()
 
     val itemModifier = Modifier
-        .height(350.dp)
+        .height(dimensionResource(R.dimen.itemSize))
         .wrapContentSize()
 
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
+        horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.itemSpaceDimen)),
+        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.itemSpaceDimen)),
         modifier = modifier
     ) {
         items(planets.itemCount) { index ->
@@ -79,7 +80,7 @@ fun ScrollingGrid(
                         Box(
                             contentAlignment = Alignment.TopCenter,
                             modifier = Modifier
-                                .height(250.dp)
+                                .height(dimensionResource(R.dimen.cardImageSize))
                                 .clip(RoundedCornerShape(10.dp))
                         ) {
                             AsyncImage(
@@ -91,7 +92,7 @@ fun ScrollingGrid(
                             )
                         }
 
-                        Spacer(Modifier.height(10.dp))
+                        Spacer(Modifier.height(dimensionResource(R.dimen.cardSpace)))
 
                         Text(
                             textAlign = TextAlign.Center,
