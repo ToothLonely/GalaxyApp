@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "dev.toothlonely.workmategalaxyapp"
+    namespace = "dev.toothlonely.galaxyapp"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "dev.toothlonely.workmategalaxyapp"
+        applicationId = "dev.toothlonely.galaxyapp"
         minSdk = 28
         targetSdk = 36
         versionCode = 1
