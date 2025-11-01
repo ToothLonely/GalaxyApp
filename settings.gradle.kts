@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "WorkmateGalaxyApp"
+rootProject.name = "GalaxyApp"
 include(":app")
