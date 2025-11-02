@@ -17,17 +17,17 @@
 
 # Стек:
 
-| Категория     | Технология                                                          |
-|---------------|---------------------------------------------------------------------|
-| Architecture  | ![MVVM](https://img.shields.io/badge/MVVM-purple)                   |
-| Language      | ![Kotlin](https://img.shields.io/badge/Kotlin-blue)                 |
-| UI            | ![Compose](https://img.shields.io/badge/Jetpack-Compose-lightgrey)  |
-| Network       | ![Ktor](https://img.shields.io/badge/Ktor-green)                    |
-| Database      | ![Room](https://img.shields.io/badge/Room-red)                      |
-| DI            | ![Koin](https://img.shields.io/badge/Koin-orange)                   |
-| Navigation    | ![Navigation](https://img.shields.io/badge/Jetpack-Navigation-grey) |
-| Image Loading | ![Coil](https://img.shields.io/badge/Coil-yellow)                   |
-| Concurrency   | ![Coroutines](https://img.shields.io/badge/Coroutines-yellowgreen)  |
+| Категория     | Технология                                                               |
+|---------------|--------------------------------------------------------------------------|
+| Architecture  | ![MVVM](https://img.shields.io/badge/MVVM-purple)                        |
+| Language      | ![Kotlin](https://img.shields.io/badge/Kotlin-blue)                      |
+| UI            | ![Compose](https://img.shields.io/badge/Jetpack-Compose-lightgrey)       |
+| Network       | ![Ktor](https://img.shields.io/badge/Ktor-green)                         |
+| Database      | ![Room](https://img.shields.io/badge/Room-red)                           |
+| DI            | ![Koin](https://img.shields.io/badge/Koin-orange)                        |
+| Navigation    | ![Navigation](https://img.shields.io/badge/Jetpack-Navigation-lightgrey) |
+| Image Loading | ![Coil](https://img.shields.io/badge/Coil-yellow)                        |
+| Concurrency   | ![Coroutines](https://img.shields.io/badge/Coroutines-yellowgreen)       |
 
 # Структура проекта:
 
