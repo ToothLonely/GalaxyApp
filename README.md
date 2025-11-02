@@ -25,7 +25,7 @@
 | Network       | ![Ktor](https://img.shields.io/badge/Ktor-green)                    |
 | Database      | ![Room](https://img.shields.io/badge/Room-red)                      |
 | DI            | ![Koin](https://img.shields.io/badge/Koin-orange)                   |
-| Navigation    | ![Navigation](https://img.shields.io/badge/Navigation-Jetpack-grey) |
+| Navigation    | ![Navigation](https://img.shields.io/badge/Jetpack-Navigation-grey) |
 | Image Loading | ![Coil](https://img.shields.io/badge/Coil-yellow)                   |
 | Concurrency   | ![Coroutines](https://img.shields.io/badge/Coroutines-yellowgreen)  |
 
