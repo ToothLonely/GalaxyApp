@@ -21,7 +21,7 @@
 |---------------|---------------------------------------------------------------------|
 | Architecture  | ![MVVM](https://img.shields.io/badge/MVVM-purple)                   |
 | Language      | ![Kotlin](https://img.shields.io/badge/Kotlin-blue)                 |
-| UI            | ![Jetpack-Compose](https://img.shields.io/badge/Jetpack-Compose)    |
+| UI            | ![Compose](https://img.shields.io/badge/Jetpack-Compose-lightgrey)  |
 | Network       | ![Ktor](https://img.shields.io/badge/Ktor-green)                    |
 | Database      | ![Room](https://img.shields.io/badge/Room-red)                      |
 | DI            | ![Koin](https://img.shields.io/badge/Koin-orange)                   |
